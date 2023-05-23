@@ -5,6 +5,9 @@
 #include "Square.h"
 #include "Circle.h"
 #include <iostream>
+#include "Image.h"
+
+//image, положить, напечать
 
 void ShowShapes(Shape* shapes[], size_t arr_szie) {
 	for (size_t i = 0; i < arr_szie; i++) {
@@ -21,7 +24,11 @@ int main() {
 	Square s(Point(-3.44, -10), 5);
 	Circle c(p1, 15);
 	
-	Shape* shapes[5] = { &p1, &t, &r, &s, &c };
+	Image img;
 
-	ShowShapes(shapes, sizeof(shapes) / sizeof(Shape*));
+	img.append(&p1);
+  img.append(&s);
+
+	std::cout << img[1]->perimeter() << std::endl;
+  img.show();
 }
